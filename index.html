@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111722" />
+    <meta name="description" content="Filmski Izazov — dnevni kviz o filmu i kinematografiji." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Filmski Izazov</title>
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <header class="site-header shell">
+      <a class="brand" href="#pocetak" aria-label="Filmski Izazov — početna">
+        <span class="brand-mark">FI</span>
+        <span>Filmski<br /><b>izazov</b></span>
+      </a>
+      <nav aria-label="Glavna navigacija">
+        <a href="#kako-radi">Kako radi</a>
+        <a href="#rang-lista">Rang-lista</a>
+      </nav>
+      <div class="header-actions">
+        <button id="adminAccess" class="text-button" type="button">Admin</button>
+        <button id="accountButton" class="account-button" type="button">Prijavi se</button>
+      </div>
+    </header>
+
+    <main id="pocetak">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>DNEVNI FILMSKI KVIZ</p>
+          <h1>Da li bi tvoj <em>film</em> dobio Oskara?</h1>
+          <p class="lead">Pet pitanja. Jedan pokušaj dnevno. Osvoji vrh rang-liste i nagradu nedelje.</p>
+          <div class="hero-actions">
+            <button id="heroStart" class="button primary" type="button">Odigraj današnji kviz <span>→</span></button>
+            <a class="inline-link" href="#kako-radi">Saznaj kako funkcioniše <span>↓</span></a>
+          </div>
+          <div class="people"><div class="faces"><i>MK</i><i>LA</i><i>NS</i><i>+</i></div><span><b>2.481</b> ljubitelja filma igra ove nedelje</span></div>
+        </div>
+        <aside class="prize-card" aria-label="Nagrada nedelje">
+          <p class="prize-heading"><span>★</span>NAGRADA NEDELJE</p>
+          <div class="ticket" aria-hidden="true"><span>FILM</span><b>✦</b><span>CLUB</span></div>
+          <p class="prize-label">Poklon kartica</p>
+          <h2>2 bioskopske<br />karte</h2>
+          <div class="prize-timer"><span>Preostalo</span><b id="weekClock">--d --h --m</b></div>
+        </aside>
+      </section>
+
+      <section class="quiz-section shell" aria-labelledby="dailyTitle">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span>EPIZODA <span id="episode">001</span></p><h2 id="dailyTitle">Današnji kadar</h2></div>
+          <p class="expires"><i></i>Kviz ističe za <b id="dayClock">--:--:--</b></p>
+        </div>
+        <div class="quiz-card" id="quizCard">
+          <section id="quizIntro" class="quiz-intro">
+            <div class="stars">✦ <span>✦</span> ✦ <span>✦</span></div>
+            <p class="quiz-kicker">TEMA DANA</p>
+            <h3 id="themeTitle">Veliki režiseri</h3>
+            <p>Testiraj svoje znanje o filmskim autorima, klasicima i svemu između.</p>
+            <div class="quiz-facts"><span><b id="availableQuestions">5</b> pitanja</span><span><b>20 s</b> po pitanju</span><span><b>5.000</b> max poena</span></div>
+            <button id="quizStart" class="button primary" type="button">Spreman sam <span>→</span></button>
+            <p class="fine-print">Jedan pokušaj dnevno. Srećno!</p>
+          </section>
+
+          <section id="questionScreen" class="question-screen hidden" aria-live="polite">
+            <div class="question-top"><span id="questionNumber">PITANJE 1 / 5</span><span class="timer"><b id="seconds">20</b>s</span></div>
+            <div class="progress-track"><div id="progress" class="progress"></div></div>
+            <p id="questionCategory" class="question-category">REŽISERI</p>
+            <h3 id="questionText">Pitanje</h3>
+            <div id="answers" class="answers"></div>
+          </section>
+
+          <section id="resultScreen" class="result-screen hidden" aria-live="polite">
+            <div class="medal">✦</div>
+            <p class="quiz-kicker">TVOJ REZULTAT</p>
+            <h3 id="resultTitle">Sjajan kadar!</h3>
+            <p id="resultCopy">Odlično poznaješ filmsku umetnost.</p>
+            <p class="big-score"><b id="resultScore">0</b> <span>poena</span></p>
+            <div class="result-details"><span>Tačno <b id="correctAnswers">0/5</b></span><span>Mesto <b id="rankPlace">#--</b></span></div>
+            <button id="shareResult" class="button primary" type="button">Podeli rezultat</button>
+            <button id="showRanking" class="text-button under" type="button">Pogledaj rang-listu</button>
+          </section>
+
+          <section id="playedScreen" class="result-screen hidden">
+            <div class="done">✓</div>
+            <p class="quiz-kicker">DANAŠNJI KVIZ JE ZAVRŠEN</p>
+            <h3>Vidimo se sutra!</h3>
+            <p>Tvoj današnji rezultat je <b id="previousScore">0</b> poena. Nova pitanja stižu u ponoć.</p>
+            <button id="playedRanking" class="button secondary" type="button">Pogledaj rang-listu</button>
+          </section>
+        </div>
+      </section>
+
+      <section id="kako-radi" class="how shell">
+        <div class="section-heading how-heading"><div><p class="eyebrow"><span></span>JEDNOSTAVNO JE</p><h2>Tri scene do vrha</h2></div><p>Svaki dan nova tema. Svake nedelje nova šansa za pobedu.</p></div>
+        <div class="steps">
+          <article><span>01</span><i>◉</i><h3>Registruj se</h3><p>Napravi nalog za manje od minut i sačuvaj rezultate.</p></article>
+          <article><span>02</span><i>✦</i><h3>Igraj svaki dan</h3><p>Odgovori na pet svežih pitanja i sakupljaj poene.</p></article>
+          <article><span>03</span><i>♛</i><h3>Osvoji nagradu</h3><p>Najbolji rezultat nedelje nosi nagradu i slavu.</p></article>
+        </div>
+      </section>
+
+      <section id="rang-lista" class="leaderboard">
+        <div class="shell leaderboard-grid">
+          <div class="leader-copy"><p class="eyebrow"><span></span>OVE NEDELJE</p><h2>Sala slavnih</h2><p>Najbrži i najprecizniji filmofili trenutno vode borbu za bioskopske karte.</p></div>
+          <div class="ranking-card"><div class="ranking-head"><span>Igrač</span><span>Poeni</span></div><ol id="rankingList"></ol></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell"><a class="brand" href="#pocetak"><span class="brand-mark">FI</span><span>Filmski<br /><b>izazov</b></span></a><p>© 2026 Filmski Izazov. MVP verzija.</p><button id="resetDemo" class="text-button" type="button">Resetuj demo</button></footer>
+
+    <div id="authModal" class="modal-backdrop hidden"><form id="authForm" class="modal" aria-labelledby="authHeading"><button class="modal-close" data-close="authModal" type="button">×</button><span class="brand-mark">FI</span><p class="eyebrow"><span></span>DOBRO DOŠAO</p><h2 id="authHeading">Pridruži se<br />filmskoj ekipi.</h2><p>Izaberi ime koje će se videti na rang-listi.</p><label for="displayName">Ime ili nadimak</label><input id="displayName" name="displayName" required minlength="2" maxlength="24" placeholder="npr. KadarLjubitelj" /><label for="email">E-mail adresa</label><input id="email" name="email" type="email" required placeholder="ti@email.com" /><button class="button primary full" type="submit">Nastavi na kviz <span>→</span></button><small>U ovoj verziji nalog ostaje sačuvan samo u ovom pregledaču.</small></form></div>
+
+    <div id="adminLoginModal" class="modal-backdrop hidden"><form id="adminLoginForm" class="modal small-modal"><button class="modal-close" data-close="adminLoginModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PRISTUP</p><h2>Uredi dnevni kviz</h2><p>Unesi administratorsku lozinku za ovaj lokalni demo.</p><label for="adminPassword">Lozinka</label><input id="adminPassword" type="password" required placeholder="••••••••" /><button class="button primary full" type="submit">Otvori admin panel</button><small>Demo lozinka: <b>filmski2026</b>. U javnoj verziji ovo zamenjuje bezbedna prijava.</small></form></div>
+
+    <div id="adminModal" class="modal-backdrop hidden"><section class="modal admin-modal" aria-labelledby="adminHeading"><button class="modal-close" data-close="adminModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PANEL</p><h2 id="adminHeading">Pitanja za kviz</h2><p class="admin-description">Dodaj pitanje i odredi kog dana se prikazuje. Pitanja su u ovom MVP-u sačuvana lokalno u pregledaču.</p>
+      <form id="questionForm" class="question-form"><div class="form-row"><label for="scheduledFor">Dan objave</label><input id="scheduledFor" type="date" required /></div><div class="form-row"><label for="newCategory">Kategorija</label><input id="newCategory" required maxlength="30" placeholder="npr. Oskari" /></div><label for="newQuestion">Pitanje</label><input id="newQuestion" required maxlength="180" placeholder="Unesi pitanje" /><div class="answer-grid"><label>Odgovor A<input id="optionA" required maxlength="100" /></label><label>Odgovor B<input id="optionB" required maxlength="100" /></label><label>Odgovor C<input id="optionC" required maxlength="100" /></label><label>Odgovor D<input id="optionD" required maxlength="100" /></label></div><label for="correctOption">Tačan odgovor</label><select id="correctOption"><option value="0">Odgovor A</option><option value="1">Odgovor B</option><option value="2">Odgovor C</option><option value="3">Odgovor D</option></select><button class="button primary full" type="submit">Sačuvaj pitanje</button><p id="questionSuccess" class="success-message" aria-live="polite"></p></form>
+      <div class="question-list-heading"><h3>Sačuvana pitanja</h3><button id="clearToday" class="text-button under" type="button">Obriši današnja</button></div><div id="adminQuestionList" class="admin-question-list"></div>
+    </section></div>
+    <div id="toast" class="toast hidden" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

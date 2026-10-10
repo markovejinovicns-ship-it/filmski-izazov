@@ -1,0 +1,357 @@
+// Filmski Izazov - app.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Demo podaci i lokalna skladišta
+  const STORAGE_KEYS = {
+    USER: 'filmski_izazov_user',
+    QUESTIONS: 'filmski_izazov_questions',
+    SCORES: 'filmski_izazov_scores'
+  };
+
+  // Inicijalna podrazumevana pitanja ako nema sačuvanih
+  const defaultQuestions = [
+    {
+      id: 'q1',
+      date: new Date().toISOString().split('T')[0],
+      category: 'REŽISERI',
+      text: 'Ko je režirao kultni film "Klub boraca" (Fight Club) iz 1999. godine?',
+      options: ['Kventin Tarantino', 'Dejvid Fincher', 'Kristofer Nolan', 'Stiven Spilberg'],
+      correct: 1
+    },
+    {
+      id: 'q2',
+      date: new Date().toISOString().split('T')[0],
+      category: 'KLASICI',
+      text: 'Koja pesma je centralni lajtmotiv u filmu "Kazablanka"?',
+      options: ['As Time Goes By', 'My Way', 'New York, New York', 'Moon River'],
+      correct: 0
+    },
+    {
+      id: 'q3',
+      date: new Date().toISOString().split('T')[0],
+      category: 'OSKARI',
+      text: 'Koji film je osvojio najviše Oskara u istoriji kinematografije (rekord od 11)?',
+      options: ['Gladijator', 'Titanik', 'Gospodar prstenova: Povratak kralja', 'Sva tri dele rekord'],
+      correct: 3
+    },
+    {
+      id: 'q4',
+      date: new Date().toISOString().split('T')[0],
+      category: 'DOMAĆI FILM',
+      text: 'U kom filmu je izrečena čuvena replika: "Đura će ti oprostiti što te je tukao"?',
+      options: ['Maratonci trče počasni krug', 'Balkanski špijun', 'Ko to tamo peva', 'Pas koji je voleo vozove'],
+      correct: 1
+    },
+    {
+      id: 'q5',
+      date: new Date().toISOString().split('T')[0],
+      category: 'ANIMACIJA',
+      text: 'Ko je studio zaslužan za remek-delo "Spirited Away" (Začarani grad)?',
+      options: ['Disney', 'Pixar', 'Studio Ghibli', 'DreamWorks'],
+      correct: 2
+    }
+  ];
+
+  // Osnovne promenljive stanja
+  let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER)) || null;
+  let questions = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUESTIONS)) || defaultQuestions;
+  let scores = JSON.parse(localStorage.getItem(STORAGE_KEYS.SCORES)) || [
+    { name: 'KadarLjubitelj', score: 4850, avatar: 'KL' },
+    { name: 'AnaFilm', score: 4620, avatar: 'AF' },
+    { name: 'StefanM', score: 4300, avatar: 'SM' },
+    { name: 'Elena_K', score: 3950, avatar: 'EK' }
+  ];
+
+  let currentQuestionIndex = 0;
+  let currentScore = 0;
+  let correctAnswersCount = 0;
+  let timerInterval = null;
+  let timeLeft = 20;
+
+  // DOM Elementi
+  const accountButton = document.getElementById('accountButton');
+  const authModal = document.getElementById('authModal');
+  const authForm = document.getElementById('authForm');
+  const adminAccessBtn = document.getElementById('adminAccess');
+  const adminLoginModal = document.getElementById('adminLoginModal');
+  const adminLoginForm = document.getElementById('adminLoginForm');
+  const adminModal = document.getElementById('adminModal');
+  const questionForm = document.getElementById('questionForm');
+ 
+  const heroStart = document.getElementById('heroStart');
+  const quizStart = document.getElementById('quizStart');
+  const quizIntro = document.getElementById('quizIntro');
+  const questionScreen = document.getElementById('questionScreen');
+  const resultScreen = document.getElementById('resultScreen');
+  const playedScreen = document.getElementById('playedScreen');
+
+  // Inicijalizacija prikaza
+  function initApp() {
+    updateUserUI();
+    renderLeaderboard();
+    setupClocks();
+  }
+
+  function updateUserUI() {
+    if (currentUser) {
+      accountButton.textContent = currentUser.name;
+    } else {
+      accountButton.textContent = 'Prijavi se';
+    }
+  }
+
+  // Prikaz rang-liste
+  function renderLeaderboard() {
+    const rankingList = document.getElementById('rankingList');
+    if (!rankingList) return;
+   
+    rankingList.innerHTML = '';
+    // Sortiranje po broju poena
+    scores.sort((a, b) => b.score - a.score);
+
+    scores.forEach((item, index) => {
+      const li = document.createElement('li');
+      const isCurrentUser = currentUser && item.name === currentUser.name;
+     
+      li.className = isCurrentUser ? 'rank-user' : '';
+      li.innerHTML = `
+        <span class="rank-number">#${index + 1}</span>
+        <div style="display: flex; align-items: center;">
+          <span class="rank-avatar">${item.avatar || item.name.substring(0, 2).toUpperCase()}</span>
+          <span class="rank-name">${item.name}</span>
+        </div>
+        <span class="rank-score">${item.score} poena</span>
+      `;
+      rankingList.appendChild(li);
+    });
+  }
+
+  // Otvaranje/Zatvaranje modala
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const modalId = e.target.getAttribute('data-close');
+      document.getElementById(modalId).classList.add('hidden');
+    });
+  });
+
+  accountButton.addEventListener('click', () => {
+    if (!currentUser) {
+      authModal.classList.remove('hidden');
+    } else {
+      if (confirm('Želiš li da se odjaviš?')) {
+        localStorage.removeItem(STORAGE_KEYS.USER);
+        currentUser = null;
+        updateUserUI();
+      }
+    }
+  });
+
+  authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('displayName').value;
+    const email = document.getElementById('email').value;
+   
+    currentUser = { name, email, avatar: name.substring(0, 2).toUpperCase() };
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(currentUser));
+   
+    authModal.classList.add('hidden');
+    updateUserUI();
+    showToast('Uspešno ste se prijavili!');
+  });
+
+  // Admin panel logika
+  adminAccessBtn.addEventListener('click', () => {
+    adminLoginModal.classList.remove('hidden');
+  });
+
+  adminLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pass = document.getElementById('adminPassword').value;
+    if (pass === 'filmski2026') {
+      adminLoginModal.classList.add('hidden');
+      adminModal.classList.remove('hidden');
+      renderAdminQuestions();
+    } else {
+      alert('Pogrešna lozinka!');
+    }
+  });
+
+  questionForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newQ = {
+      id: 'q_' + Date.now(),
+      date: document.getElementById('scheduledFor').value,
+      category: document.getElementById('newCategory').value,
+      text: document.getElementById('newQuestion').value,
+      options: [
+        document.getElementById('optionA').value,
+        document.getElementById('optionB').value,
+        document.getElementById('optionC').value,
+        document.getElementById('optionD').value
+      ],
+      correct: parseInt(document.getElementById('correctOption').value)
+    };
+
+    questions.push(newQ);
+    localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(questions));
+    questionForm.reset();
+    document.getElementById('questionSuccess').textContent = 'Pitanje uspešno sačuvano!';
+    setTimeout(() => { document.getElementById('questionSuccess').textContent = ''; }, 3000);
+    renderAdminQuestions();
+  });
+
+  function renderAdminQuestions() {
+    const listContainer = document.getElementById('adminQuestionList');
+    listContainer.innerHTML = '';
+    questions.forEach((q, idx) => {
+      const div = document.createElement('div');
+      div.className = 'admin-question';
+      div.innerHTML = `
+        <div>
+          <b>${q.category}</b> (${q.date})
+          <p>${q.text}</p>
+        </div>
+        <button class="delete-question" data-id="${q.id}">Obriši</button>
+      `;
+      listContainer.appendChild(div);
+    });
+
+    document.querySelectorAll('.delete-question').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = e.target.getAttribute('data-id');
+        questions = questions.filter(item => item.id !== id);
+        localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(questions));
+        renderAdminQuestions();
+      });
+    });
+  }
+
+  // Pokretanje kviza
+  function startQuizProcess() {
+    if (!currentUser) {
+      authModal.classList.remove('hidden');
+      return;
+    }
+   
+    quizIntro.classList.add('hidden');
+    questionScreen.classList.remove('hidden');
+    currentQuestionIndex = 0;
+    currentScore = 0;
+    correctAnswersCount = 0;
+    loadQuestion();
+  }
+
+  heroStart.addEventListener('click', startQuizProcess);
+  quizStart.addEventListener('click', startQuizProcess);
+
+  function loadQuestion() {
+    if (currentQuestionIndex >= questions.length || currentQuestionIndex >= 5) {
+      finishQuiz();
+      return;
+    }
+
+    const q = questions[currentQuestionIndex];
+    document.getElementById('questionNumber').textContent = `PITANJE ${currentQuestionIndex + 1} / 5`;
+    document.getElementById('questionCategory').textContent = q.category;
+    document.getElementById('questionText').textContent = q.text;
+
+    const answersContainer = document.getElementById('answers');
+    answersContainer.innerHTML = '';
+
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'answer';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => handleAnswer(idx, q.correct));
+      answersContainer.appendChild(btn);
+    });
+
+    // Reset i pokretanje tajmera
+    clearInterval(timerInterval);
+    timeLeft = 20;
+    document.getElementById('seconds').textContent = timeLeft;
+    document.getElementById('progress').style.width = '100%';
+
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      document.getElementById('seconds').textContent = timeLeft;
+      document.getElementById('progress').style.width = `${(timeLeft / 20) * 100}%`;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        handleAnswer(-1, q.correct); // Isteklo vreme
+      }
+    }, 1000);
+  }
+
+  function handleAnswer(selectedIndex, correctIndex) {
+    clearInterval(timerInterval);
+    const answerButtons = document.querySelectorAll('.answer');
+   
+    answerButtons.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === correctIndex) btn.classList.add('correct');
+      if (idx === selectedIndex && idx !== correctIndex) btn.classList.add('wrong');
+    });
+
+    if (selectedIndex === correctIndex) {
+      correctAnswersCount++;
+      currentScore += 1000 + (timeLeft * 25); // Bonus za brzinu
+    }
+
+    setTimeout(() => {
+      currentQuestionIndex++;
+      loadQuestion();
+    }, 1200);
+  }
+
+  function finishQuiz() {
+    questionScreen.classList.add('hidden');
+    resultScreen.classList.remove('hidden');
+
+    document.getElementById('resultScore').textContent = currentScore;
+    document.getElementById('correctAnswers').textContent = `${correctAnswersCount}/5`;
+   
+    // Upis rezultata na rang-listu
+    if (currentUser) {
+      const existingUserScore = scores.find(s => s.name === currentUser.name);
+      if (existingUserScore) {
+        if (currentScore > existingUserScore.score) existingUserScore.score = currentScore;
+      } else {
+        scores.push({ name: currentUser.name, score: currentScore, avatar: currentUser.avatar });
+      }
+      localStorage.setItem(STORAGE_KEYS.SCORES, JSON.stringify(scores));
+      renderLeaderboard();
+    }
+  }
+
+  document.getElementById('showRanking').addEventListener('click', () => {
+    document.getElementById('rang-lista').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Tajmeri na vrhu (satovi)
+  function setupClocks() {
+    setInterval(() => {
+      const now = new Date();
+      const midnight = new Date(now);
+      midnight.setHours(24, 0, 0, 0);
+      const diff = midnight - now;
+
+      const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((diff / 1000 / 60) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+      const dayClock = document.getElementById('dayClock');
+      if (dayClock) dayClock.textContent = `${hours}:${minutes}:${seconds}`;
+    }, 1000);
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.remove('hidden');
+    setTimeout(() => toast.classList.add('hidden'), 3000);
+  }
+
+  initApp();
+});
