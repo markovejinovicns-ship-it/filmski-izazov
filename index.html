@@ -6,8 +6,10 @@
     <meta name="theme-color" content="#111722" />
     <meta name="description" content="Filmski Izazov — dnevni kviz o filmu i kinematografiji." />
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="stylesheet" href="styles.css" />
     <title>Filmski Izazov</title>
+    <style>
+      :root{--ink:#111722;--paper:#f7f3ed;--cream:#fffdf9;--red:#e9503b;--gold:#ffcb4d;--muted:#65707b;--line:#ddd7cf;--green:#398653;--shadow:0 18px 45px rgba(17,23,34,.14)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px Arial,sans-serif}.page-noise{pointer-events:none;position:fixed;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:5}.shell{width:min(1100px,calc(100% - 48px));margin:auto}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.hidden{display:none!important}.site-header{height:88px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-size:11px;line-height:.8;text-transform:uppercase;letter-spacing:1px;font-weight:bold}.brand b{font:700 17px Georgia,serif;letter-spacing:-1px;text-transform:none}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--gold);font:bold 17px Georgia,serif;letter-spacing:-2px}nav{display:flex;gap:28px;margin-left:100px}nav a,.text-button{font-size:13px;color:#58616d;border:0;background:transparent;padding:0}.header-actions{display:flex;gap:14px;align-items:center}.account-button{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:9px 14px;font-size:13px;font-weight:bold}.account-button:before{content:'•';color:var(--gold);font-size:22px;vertical-align:-2px;margin-right:5px}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:68px;align-items:center;padding:75px 0 86px}.eyebrow{margin:0 0 15px;color:var(--muted);font-size:10px;letter-spacing:2px;font-weight:bold}.eyebrow span{display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;margin-right:8px}h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(46px,5.9vw,70px);line-height:.96;letter-spacing:-4px;margin:0 0 23px}h1 em{color:var(--red)}.lead{max-width:485px;color:#58616c;line-height:1.55;font-size:17px;margin:0 0 28px}.button{border:0;border-radius:6px;padding:14px 20px;font-weight:bold;transition:transform .15s,box-shadow .15s}.button:hover{transform:translateY(-2px);box-shadow:0 9px 18px #10172224}.primary{background:var(--red);color:#fff}.secondary{background:var(--gold);color:var(--ink)}.button span{font-size:18px;margin-left:10px}.hero-actions{display:flex;gap:24px;align-items:center}.inline-link,.under{text-decoration:underline;text-underline-offset:4px;font-weight:bold}.people{display:flex;gap:10px;align-items:center;margin-top:34px;font-size:12px;color:var(--muted)}.people b{color:var(--ink)}.faces{display:flex}.faces i{display:grid;place-items:center;width:25px;height:25px;border:2px solid var(--paper);border-radius:50%;background:#cb9b89;color:#fff;font:7px Arial;margin-left:-6px}.faces i:nth-child(2){background:#77919e}.faces i:nth-child(3){background:#6f805f}.faces i:last-child{background:var(--ink);font-size:14px}.faces i:first-child{margin:0}.prize-card{position:relative;overflow:hidden;justify-self:end;width:min(100%,346px);padding:26px 28px 22px;background:var(--ink);color:#fff;box-shadow:11px 11px 0 var(--gold)}.prize-card:after{content:'';position:absolute;width:250px;height:250px;border:1px solid #fff2;border-radius:50%;right:-130px;top:-160px}.prize-heading{position:relative;z-index:1;margin:0;color:#cfd5db;font-size:10px;letter-spacing:1.5px;font-weight:bold}.prize-heading span{color:var(--gold);margin-right:5px}.ticket{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-around;width:150px;height:97px;margin:28px 0 20px;border:2px dashed var(--gold);color:var(--gold);transform:rotate(-4deg)}.ticket span{writing-mode:vertical-rl;font-size:9px;letter-spacing:2px}.ticket b{font-size:30px}.prize-label{margin:0 0 4px;color:#d1d6dc;font-size:12px}.prize-card h2{position:relative;z-index:1;margin:0 0 26px;font-size:29px;line-height:1;letter-spacing:-2px}.prize-timer{position:relative;z-index:1;border-top:1px solid #fff3;padding-top:15px;display:flex;justify-content:space-between;color:#cbd1d7;font-size:11px}.prize-timer b{color:var(--gold);letter-spacing:1px}.quiz-section{padding:45px 0 88px}.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:25px}.section-heading h2,.how h2{margin:0;font-size:37px;line-height:1;letter-spacing:-2px}.expires{margin:0;font-size:12px;color:var(--muted)}.expires i{display:inline-block;width:8px;height:8px;background:#50a668;border-radius:50%;margin-right:6px}.quiz-card{position:relative;overflow:hidden;min-height:322px;padding:35px 42px;background:var(--cream);border:1px solid var(--line);box-shadow:var(--shadow)}.quiz-card:after{content:'';position:absolute;right:-95px;top:-155px;width:250px;height:250px;border:37px solid var(--paper);border-radius:50%}.quiz-intro,.result-screen{text-align:center;position:relative;z-index:1}.stars{font-size:17px;color:var(--gold);letter-spacing:5px}.stars span{color:var(--red)}.quiz-kicker,.question-category{margin:11px 0 8px;color:var(--red);font-size:10px;letter-spacing:2px;font-weight:bold}.quiz-intro h3,.result-screen h3{margin:0 0 10px;font-size:31px;letter-spacing:-2px}.quiz-intro>p:not(.quiz-kicker):not(.fine-print),.result-screen>p:not(.quiz-kicker){margin:0 auto 18px;color:var(--muted);font-size:14px;line-height:1.5;max-width:470px}.quiz-facts{display:flex;justify-content:center;margin:19px 0 22px}.quiz-facts span{padding:0 15px;border-right:1px solid var(--line);color:var(--muted);font-size:12px}.quiz-facts span:last-child{border:0}.quiz-facts b{color:var(--ink)}.fine-print{margin:11px 0 0;color:#8a9198;font-size:11px}.question-screen{max-width:730px;margin:auto;position:relative;z-index:1}.question-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:bold;letter-spacing:1.5px}.timer{color:var(--red);font-size:14px;letter-spacing:0}.progress-track{height:5px;margin:14px 0 27px;overflow:hidden;background:#e6e1d9;border-radius:4px}.progress{height:100%;background:var(--red);transition:width .25s}.question-category{margin:0 0 7px}.question-screen h3{margin:0 0 21px;font-size:27px;line-height:1.15;letter-spacing:-1.7px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #d7d1c8;border-radius:5px;background:#fff;color:var(--ink);padding:14px;text-align:left;font-size:14px;font-weight:bold;transition:transform .15s,border .15s}.answer:hover:not(:disabled){transform:translateY(-2px);border-color:var(--ink)}.answer:disabled{cursor:default}.answer.correct{background:#dff1e3;border-color:#4b9e63}.answer.wrong{background:#fbdfda;border-color:var(--red)}.medal,.done{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 14px;border-radius:50%;background:var(--gold);font-size:21px}.done{background:#dff1e3;color:var(--green);font-size:26px}.big-score{margin:0 0 16px!important;color:var(--red)!important;font-family:Georgia,serif}.big-score b{font-size:47px;letter-spacing:-3px}.big-score span{color:var(--muted);font:12px Arial}.result-details{display:flex;justify-content:center;gap:35px;margin:15px 0 20px;color:var(--muted);font-size:12px}.result-details b{color:var(--ink)}.result-screen .text-button{display:block;margin:12px auto 0;color:var(--ink)}.how{padding:72px 0 90px;border-top:1px solid var(--line)}.how-heading>p{max-width:280px;margin:0;color:var(--muted);font-size:14px;line-height:1.5}.steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:43px;border:1px solid var(--line);gap:1px;background:var(--line)}.steps article{position:relative;min-height:195px;padding:27px;background:var(--paper)}.steps article>span{position:absolute;right:22px;top:21px;color:#a0a6a8;font-size:13px;font-weight:bold}.steps i{display:block;height:48px;color:var(--red);font-size:30px;font-style:normal}.steps article:nth-child(2) i{color:var(--gold)}.steps article:nth-child(3) i{color:#619b73}.steps h3{margin:0 0 8px;font-size:24px;letter-spacing:-1px}.steps p{max-width:230px;margin:0;color:var(--muted);font-size:13px;line-height:1.5}.leaderboard{padding:84px 0;background:var(--ink);color:#fff}.leaderboard-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:95px;align-items:center}.leader-copy .eyebrow{color:#c1c8cf}.leader-copy h2{margin:0;font-size:45px;letter-spacing:-3px}.leader-copy>p:not(.eyebrow){max-width:295px;color:#c8ced4;font-size:14px;line-height:1.55}.ranking-card{padding:20px 24px;background:var(--cream);color:var(--ink)}.ranking-head,.ranking-card li{display:grid;grid-template-columns:38px 1fr auto;align-items:center}.ranking-head{grid-template-columns:1fr auto;padding:0 0 10px 38px;border-bottom:1px solid var(--line);color:#7b838c;font-size:10px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}.ranking-card ol{margin:0;padding:0;list-style:none}.ranking-card li{min-height:56px;border-bottom:1px solid var(--line);font-size:13px}.ranking-card li:last-child{border:0}.rank-number{color:#78818a;font-weight:bold}.rank-avatar{display:inline-grid;place-items:center;width:27px;height:27px;margin-right:9px;border-radius:50%;background:#8999a6;color:#fff;font-size:8px;font-style:normal}.rank-name,.rank-score{font-weight:bold}.rank-user{margin:0 -8px;padding:0 8px;background:#fff0d3}footer{display:flex;align-items:center;justify-content:space-between;padding:24px 0 30px;border-top:1px solid var(--line)}footer p{margin:0;color:#858c93;font-size:11px}.modal-backdrop{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:20px;background:#0d111bba;backdrop-filter:blur(4px)}.modal{position:relative;width:min(100%,430px);max-height:92vh;overflow:auto;padding:33px;background:var(--cream);box-shadow:0 25px 70px #0006}.modal-close{position:absolute;right:13px;top:9px;border:0;background:transparent;color:var(--muted);font-size:28px}.modal>.brand-mark{margin-bottom:24px}.modal h2{margin:0 0 13px;font-size:38px;line-height:.96;letter-spacing:-3px}.modal>p:not(.eyebrow):not(.admin-description){color:var(--muted);font-size:14px;line-height:1.5}.modal label{display:block;margin:13px 0 6px;font-size:12px;font-weight:bold}.modal input,.modal select{width:100%;padding:12px;border:1px solid #cfc8be;border-radius:4px;background:#fff;outline-color:var(--red)}.full{width:100%;margin-top:20px}.modal small{display:block;margin-top:13px;color:#828991;font-size:10px;line-height:1.4;text-align:center}.admin-modal{width:min(100%,735px)}.admin-modal h2{font-size:33px}.admin-description{margin-top:-3px;color:var(--muted);font-size:13px;line-height:1.45}.question-form{padding:5px 0 21px}.form-row{display:inline-block;width:calc(50% - 8px);vertical-align:top}.form-row+.form-row{margin-left:12px}.answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.answer-grid label{margin-top:10px!important}.success-message{min-height:18px;margin:9px 0 0;color:var(--green);font-size:12px;font-weight:bold}.question-list-heading{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:19px}.question-list-heading h3{margin:0;font-size:20px}.admin-question-list{max-height:270px;overflow:auto;margin-top:12px;border-top:1px solid var(--line)}.admin-question{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}.admin-question p{margin:4px 0 0;color:var(--muted);font-size:11px}.admin-question b{font-size:11px;color:var(--red);letter-spacing:1px}.delete-question{align-self:center;border:0;background:transparent;color:var(--red);font-size:11px;font-weight:bold;text-decoration:underline}.toast{position:fixed;z-index:30;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 16px;background:var(--ink);color:#fff;border-radius:5px;box-shadow:var(--shadow);font-size:13px;white-space:nowrap}@media(max-width:760px){.shell{width:calc(100% - 32px)}.site-header{height:73px}nav,.header-actions .text-button{display:none}.hero{grid-template-columns:1fr;gap:42px;padding:54px 0}.prize-card{justify-self:start;width:100%;max-width:365px}.hero-actions{align-items:flex-start;flex-direction:column;gap:16px}.section-heading{align-items:flex-start;flex-direction:column;gap:13px}.section-heading h2,.how h2{font-size:34px}.quiz-card{min-height:0;padding:29px 20px}.quiz-card:after{display:none}.quiz-facts span{padding:0 8px;font-size:10px}.answers{grid-template-columns:1fr}.question-screen h3{font-size:25px}.how{padding:56px 0}.steps{grid-template-columns:1fr;margin-top:30px}.steps article{min-height:0}.leaderboard{padding:58px 0}.leaderboard-grid{grid-template-columns:1fr;gap:34px}.leader-copy h2{font-size:40px}.ranking-card{padding:17px}.form-row{display:block;width:100%}.form-row+.form-row{margin-left:0}.answer-grid{grid-template-columns:1fr}.modal{padding:28px 23px}footer{align-items:flex-start;flex-direction:column;gap:20px}}
+    </style>
   </head>
   <body>
     <div class="page-noise" aria-hidden="true"></div>
@@ -81,14 +83,6 @@
             <button id="shareResult" class="button primary" type="button">Podeli rezultat</button>
             <button id="showRanking" class="text-button under" type="button">Pogledaj rang-listu</button>
           </section>
-
-          <section id="playedScreen" class="result-screen hidden">
-            <div class="done">✓</div>
-            <p class="quiz-kicker">DANAŠNJI KVIZ JE ZAVRŠEN</p>
-            <h3>Vidimo se sutra!</h3>
-            <p>Tvoj današnji rezultat je <b id="previousScore">0</b> poena. Nova pitanja stižu u ponoć.</p>
-            <button id="playedRanking" class="button secondary" type="button">Pogledaj rang-listu</button>
-          </section>
         </div>
       </section>
 
@@ -109,17 +103,324 @@
       </section>
     </main>
 
-    <footer class="shell"><a class="brand" href="#pocetak"><span class="brand-mark">FI</span><span>Filmski<br /><b>izazov</b></span></a><p>© 2026 Filmski Izazov. MVP verzija.</p><button id="resetDemo" class="text-button" type="button">Resetuj demo</button></footer>
+    <footer class="shell"><a class="brand" href="#pocetak"><span class="brand-mark">FI</span><span>Filmski<br /><b>izazov</b></span></a><p>© 2026 Filmski Izazov. MVP verzija.</p></footer>
 
     <div id="authModal" class="modal-backdrop hidden"><form id="authForm" class="modal" aria-labelledby="authHeading"><button class="modal-close" data-close="authModal" type="button">×</button><span class="brand-mark">FI</span><p class="eyebrow"><span></span>DOBRO DOŠAO</p><h2 id="authHeading">Pridruži se<br />filmskoj ekipi.</h2><p>Izaberi ime koje će se videti na rang-listi.</p><label for="displayName">Ime ili nadimak</label><input id="displayName" name="displayName" required minlength="2" maxlength="24" placeholder="npr. KadarLjubitelj" /><label for="email">E-mail adresa</label><input id="email" name="email" type="email" required placeholder="ti@email.com" /><button class="button primary full" type="submit">Nastavi na kviz <span>→</span></button><small>U ovoj verziji nalog ostaje sačuvan samo u ovom pregledaču.</small></form></div>
 
-    <div id="adminLoginModal" class="modal-backdrop hidden"><form id="adminLoginForm" class="modal small-modal"><button class="modal-close" data-close="adminLoginModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PRISTUP</p><h2>Uredi dnevni kviz</h2><p>Unesi administratorsku lozinku za ovaj lokalni demo.</p><label for="adminPassword">Lozinka</label><input id="adminPassword" type="password" required placeholder="••••••••" /><button class="button primary full" type="submit">Otvori admin panel</button><small>Demo lozinka: <b>filmski2026</b>. U javnoj verziji ovo zamenjuje bezbedna prijava.</small></form></div>
+    <div id="adminLoginModal" class="modal-backdrop hidden"><form id="adminLoginForm" class="modal small-modal"><button class="modal-close" data-close="adminLoginModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PRISTUP</p><h2>Uredi dnevni kviz</h2><p>Unesi administratorsku lozinku za ovaj lokalni demo.</p><label for="adminPassword">Lozinka</label><input id="adminPassword" type="password" required placeholder="••••••••" /><button class="button primary full" type="submit">Otvori admin panel</button><small>Demo lozinka: <b>filmski2026</b>.</small></form></div>
 
-    <div id="adminModal" class="modal-backdrop hidden"><section class="modal admin-modal" aria-labelledby="adminHeading"><button class="modal-close" data-close="adminModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PANEL</p><h2 id="adminHeading">Pitanja za kviz</h2><p class="admin-description">Dodaj pitanje i odredi kog dana se prikazuje. Pitanja su u ovom MVP-u sačuvana lokalno u pregledaču.</p>
+    <div id="adminModal" class="modal-backdrop hidden"><section class="modal admin-modal" aria-labelledby="adminHeading"><button class="modal-close" data-close="adminModal" type="button">×</button><p class="eyebrow"><span></span>ADMIN PANEL</p><h2 id="adminHeading">Pitanja za kviz</h2><p class="admin-description">Dodaj pitanje i odredi kog dana se prikazuje.</p>
       <form id="questionForm" class="question-form"><div class="form-row"><label for="scheduledFor">Dan objave</label><input id="scheduledFor" type="date" required /></div><div class="form-row"><label for="newCategory">Kategorija</label><input id="newCategory" required maxlength="30" placeholder="npr. Oskari" /></div><label for="newQuestion">Pitanje</label><input id="newQuestion" required maxlength="180" placeholder="Unesi pitanje" /><div class="answer-grid"><label>Odgovor A<input id="optionA" required maxlength="100" /></label><label>Odgovor B<input id="optionB" required maxlength="100" /></label><label>Odgovor C<input id="optionC" required maxlength="100" /></label><label>Odgovor D<input id="optionD" required maxlength="100" /></label></div><label for="correctOption">Tačan odgovor</label><select id="correctOption"><option value="0">Odgovor A</option><option value="1">Odgovor B</option><option value="2">Odgovor C</option><option value="3">Odgovor D</option></select><button class="button primary full" type="submit">Sačuvaj pitanje</button><p id="questionSuccess" class="success-message" aria-live="polite"></p></form>
-      <div class="question-list-heading"><h3>Sačuvana pitanja</h3><button id="clearToday" class="text-button under" type="button">Obriši današnja</button></div><div id="adminQuestionList" class="admin-question-list"></div>
+      <div class="question-list-heading"><h3>Sačuvana pitanja</h3></div><div id="adminQuestionList" class="admin-question-list"></div>
     </section></div>
+   
     <div id="toast" class="toast hidden" role="status"></div>
-    <script src="app.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const STORAGE_KEYS = {
+          USER: 'filmski_izazov_user',
+          QUESTIONS: 'filmski_izazov_questions',
+          SCORES: 'filmski_izazov_scores'
+        };
+
+        const defaultQuestions = [
+          { id: 'q1', date: new Date().toISOString().split('T')[0], category: 'REŽISERI', text: 'Ko je režirao kultni film "Klub boraca" (Fight Club) iz 1999. godine?', options: ['Kventin Tarantino', 'Dejvid Fincher', 'Kristofer Nolan', 'Stiven Spilberg'], correct: 1 },
+          { id: 'q2', date: new Date().toISOString().split('T')[0], category: 'KLASICI', text: 'Koja pesma je centralni lajtmotiv u filmu "Kazablanka"?', options: ['As Time Goes By', 'My Way', 'New York, New York', 'Moon River'], correct: 0 },
+          { id: 'q3', date: new Date().toISOString().split('T')[0], category: 'OSKARI', text: 'Koji film je osvojio najviše Oskara u istoriji kinematografije (rekord od 11)?', options: ['Gladijator', 'Titanik', 'Gospodar prstenova: Povratak kralja', 'Sva tri dele rekord'], correct: 3 },
+          { id: 'q4', date: new Date().toISOString().split('T')[0], category: 'DOMAĆI FILM', text: 'U kom filmu je izrečena čuvena replika: "Đura će ti oprostiti što te je tukao"?', options: ['Maratonci trče počasni krug', 'Balkanski špijun', 'Ko to tamo peva', 'Pas koji je voleo vozove'], correct: 1 },
+          { id: 'q5', date: new Date().toISOString().split('T')[0], category: 'ANIMACIJA', text: 'Ko je studio zaslužan za remek-delo "Spirited Away" (Začarani grad)?', options: ['Disney', 'Pixar', 'Studio Ghibli', 'DreamWorks'], correct: 2 }
+        ];
+
+        let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER)) || null;
+        let questions = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUESTIONS)) || defaultQuestions;
+        let scores = JSON.parse(localStorage.getItem(STORAGE_KEYS.SCORES)) || [
+          { name: 'KadarLjubitelj', score: 4850, avatar: 'KL' },
+          { name: 'AnaFilm', score: 4620, avatar: 'AF' },
+          { name: 'StefanM', score: 4300, avatar: 'SM' },
+          { name: 'Elena_K', score: 3950, avatar: 'EK' }
+        ];
+
+        let currentQuestionIndex = 0;
+        let currentScore = 0;
+        let correctAnswersCount = 0;
+        let timerInterval = null;
+        let timeLeft = 20;
+
+        const accountButton = document.getElementById('accountButton');
+        const authModal = document.getElementById('authModal');
+        const authForm = document.getElementById('authForm');
+        const adminAccessBtn = document.getElementById('adminAccess');
+        const adminLoginModal = document.getElementById('adminLoginModal');
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const adminModal = document.getElementById('adminModal');
+        const questionForm = document.getElementById('questionForm');
+       
+        const heroStart = document.getElementById('heroStart');
+        const quizStart = document.getElementById('quizStart');
+        const quizIntro = document.getElementById('quizIntro');
+        const questionScreen = document.getElementById('questionScreen');
+        const resultScreen = document.getElementById('resultScreen');
+
+        function initApp() {
+          updateUserUI();
+          renderLeaderboard();
+          setupClocks();
+        }
+
+        function updateUserUI() {
+          if (currentUser) {
+            accountButton.textContent = currentUser.name;
+          } else {
+            accountButton.textContent = 'Prijavi se';
+          }
+        }
+
+        function renderLeaderboard() {
+          const rankingList = document.getElementById('rankingList');
+          if (!rankingList) return;
+          rankingList.innerHTML = '';
+          scores.sort((a, b) => b.score - a.score);
+
+          scores.forEach((item, index) => {
+            const li = document.createElement('li');
+            const isCurrentUser = currentUser && item.name === currentUser.name;
+            li.className = isCurrentUser ? 'rank-user' : '';
+            li.innerHTML = `
+              <span class="rank-number">#${index + 1}</span>
+              <div style="display: flex; align-items: center;">
+                <span class="rank-avatar">${item.avatar || item.name.substring(0, 2).toUpperCase()}</span>
+                <span class="rank-name">${item.name}</span>
+              </div>
+              <span class="rank-score">${item.score} poena</span>
+            `;
+            rankingList.appendChild(li);
+          });
+        }
+
+        document.querySelectorAll('[data-close]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const modalId = e.target.getAttribute('data-close');
+            document.getElementById(modalId).classList.add('hidden');
+          });
+        });
+
+        accountButton.addEventListener('click', () => {
+          if (!currentUser) {
+            authModal.classList.remove('hidden');
+          } else {
+            if (confirm('Želiš li da se odjaviš?')) {
+              localStorage.removeItem(STORAGE_KEYS.USER);
+              currentUser = null;
+              updateUserUI();
+            }
+          }
+        });
+
+        authForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('displayName').value;
+          const email = document.getElementById('email').value;
+          currentUser = { name, email, avatar: name.substring(0, 2).toUpperCase() };
+          localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(currentUser));
+          authModal.classList.add('hidden');
+          updateUserUI();
+          showToast('Uspešno ste se prijavili!');
+        });
+
+        adminAccessBtn.addEventListener('click', () => {
+          adminLoginModal.classList.remove('hidden');
+        });
+
+        adminLoginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const pass = document.getElementById('adminPassword').value;
+          if (pass === 'filmski2026') {
+            adminLoginModal.classList.add('hidden');
+            adminModal.classList.remove('hidden');
+            renderAdminQuestions();
+          } else {
+            alert('Pogrešna lozinka!');
+          }
+        });
+
+        questionForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const newQ = {
+            id: 'q_' + Date.now(),
+            date: document.getElementById('scheduledFor').value,
+            category: document.getElementById('newCategory').value,
+            text: document.getElementById('newQuestion').value,
+            options: [
+              document.getElementById('optionA').value,
+              document.getElementById('optionB').value,
+              document.getElementById('optionC').value,
+              document.getElementById('optionD').value
+            ],
+            correct: parseInt(document.getElementById('correctOption').value)
+          };
+
+          questions.push(newQ);
+          localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(questions));
+          questionForm.reset();
+          document.getElementById('questionSuccess').textContent = 'Pitanje uspešno sačuvano!';
+          setTimeout(() => { document.getElementById('questionSuccess').textContent = ''; }, 3000);
+          renderAdminQuestions();
+        });
+
+        function renderAdminQuestions() {
+          const listContainer = document.getElementById('adminQuestionList');
+          listContainer.innerHTML = '';
+          questions.forEach((q) => {
+            const div = document.createElement('div');
+            div.className = 'admin-question';
+            div.innerHTML = `
+              <div>
+                <b>${q.category}</b> (${q.date})
+                <p>${q.text}</p>
+              </div>
+              <button class="delete-question" data-id="${q.id}">Obriši</button>
+            `;
+            listContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.delete-question').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const id = e.target.getAttribute('data-id');
+              questions = questions.filter(item => item.id !== id);
+              localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(questions));
+              renderAdminQuestions();
+            });
+          });
+        }
+
+        function startQuizProcess() {
+          if (!currentUser) {
+            authModal.classList.remove('hidden');
+            return;
+          }
+          quizIntro.classList.add('hidden');
+          questionScreen.classList.remove('hidden');
+          currentQuestionIndex = 0;
+          currentScore = 0;
+          correctAnswersCount = 0;
+          loadQuestion();
+        }
+
+        heroStart.addEventListener('click', startQuizProcess);
+        quizStart.addEventListener('click', startQuizProcess);
+
+        function loadQuestion() {
+          if (currentQuestionIndex >= questions.length || currentQuestionIndex >= 5) {
+            finishQuiz();
+            return;
+          }
+
+          const q = questions[currentQuestionIndex];
+          document.getElementById('questionNumber').textContent = `PITANJE ${currentQuestionIndex + 1} / 5`;
+          document.getElementById('questionCategory').textContent = q.category;
+          document.getElementById('questionText').textContent = q.text;
+
+          const answersContainer = document.getElementById('answers');
+          answersContainer.innerHTML = '';
+
+          q.options.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'answer';
+            btn.textContent = opt;
+            btn.addEventListener('click', () => handleAnswer(idx, q.correct));
+            answersContainer.appendChild(btn);
+          });
+
+          clearInterval(timerInterval);
+          timeLeft = 20;
+          document.getElementById('seconds').textContent = timeLeft;
+          document.getElementById('progress').style.width = '100%';
+
+          timerInterval = setInterval(() => {
+            timeLeft--;
+            document.getElementById('seconds').textContent = timeLeft;
+            document.getElementById('progress').style.width = `${(timeLeft / 20) * 100}%`;
+
+            if (timeLeft <= 0) {
+              clearInterval(timerInterval);
+              handleAnswer(-1, q.correct);
+            }
+          }, 1000);
+        }
+
+        function handleAnswer(selectedIndex, correctIndex) {
+          clearInterval(timerInterval);
+          const answerButtons = document.querySelectorAll('.answer');
+         
+          answerButtons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === correctIndex) btn.classList.add('correct');
+            if (idx === selectedIndex && idx !== correctIndex) btn.classList.add('wrong');
+          });
+
+          if (selectedIndex === correctIndex) {
+            correctAnswersCount++;
+            currentScore += 1000 + (timeLeft * 25);
+          }
+
+          setTimeout(() => {
+            currentQuestionIndex++;
+            loadQuestion();
+          }, 1200);
+        }
+
+        function finishQuiz() {
+          questionScreen.classList.add('hidden');
+          resultScreen.classList.remove('hidden');
+
+          document.getElementById('resultScore').textContent = currentScore;
+          document.getElementById('correctAnswers').textContent = `${correctAnswersCount}/5`;
+         
+          if (currentUser) {
+            const existingUserScore = scores.find(s => s.name === currentUser.name);
+            if (existingUserScore) {
+              if (currentScore > existingUserScore.score) existingUserScore.score = currentScore;
+            } else {
+              scores.push({ name: currentUser.name, score: currentScore, avatar: currentUser.avatar });
+            }
+            localStorage.setItem(STORAGE_KEYS.SCORES, JSON.stringify(scores));
+            renderLeaderboard();
+          }
+        }
+
+        const showRankingBtn = document.getElementById('showRanking');
+        if (showRankingBtn) {
+          showRankingBtn.addEventListener('click', () => {
+            document.getElementById('rang-lista').scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        function setupClocks() {
+          setInterval(() => {
+            const now = new Date();
+            const midnight = new Date(now);
+            midnight.setHours(24, 0, 0, 0);
+            const diff = midnight - now;
+
+            const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const minutes = String(Math.floor((diff / 1000 / 60) % 60)).padStart(2, '0');
+            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+            const dayClock = document.getElementById('dayClock');
+            if (dayClock) dayClock.textContent = `${hours}:${minutes}:${seconds}`;
+          }, 1000);
+        }
+
+        function showToast(msg) {
+          const toast = document.getElementById('toast');
+          toast.textContent = msg;
+          toast.classList.remove('hidden');
+          setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        initApp();
+      });
+    </script>
   </body>
 </html>
